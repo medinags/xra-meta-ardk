@@ -11,8 +11,9 @@ public class XRAPlatformManager : MonoBehaviour
    
     private void Awake()
     {
-#if UNITY_IOS
+#if UNITY_IOS && !UNITY_EDITOR
         CurrentPlatfromType = PlatfromType.iPhone;
+
         iphoneRig.SetActive(true);
         metaQuestRig.SetActive(false);
 
@@ -20,6 +21,8 @@ public class XRAPlatformManager : MonoBehaviour
         CurrentPlatfromType = PlatfromType.MetaQuest;
                 metaQuestRig.SetActive(true);
                 iphoneRig.SetActive(false);
+#elif UNITY_EDITOR
+        CurrentPlatfromType = PlatfromType.UnityEditor;
 #endif
 
     }

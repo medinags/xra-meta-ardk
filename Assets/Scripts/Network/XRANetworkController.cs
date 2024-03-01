@@ -40,6 +40,11 @@ public class XRANetworkController : NetworkBehaviour
                 break;
             case PlatfromType.MetaQuest:
                 NetworkManager.Singleton.StartHost();
+                //NetworkManager.Singleton.StartClient();
+                break;
+            case PlatfromType.UnityEditor:
+                NetworkManager.Singleton.StartClient();
+                //NetworkManager.Singleton.StartHost();
                 break;
         }
     }
